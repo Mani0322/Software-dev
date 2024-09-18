@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static  'bootstrap\css\bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <title>home</title>
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {
+            font-family: Roboto, sans-serif;
+        }
+        li{
+            padding: 20px;
+        }
+        .head h1{
+            margin-left: 20px;
+        }
+        .head li a{
+            color:white !important;
+        }
+        .card{
+            margin-left: 10%;
+            margin-top: 15%;
+            text-align: center;
+            max-width: 80%;
+            background-color: rgb(167, 218, 234);
+        }
+        
+
+       .center-text{
+            text-align: center;
+        
+       }
+       
+       footer{
+        background-color:rgba(33,37,41,255);
+       }
+
+      
+       
+        
+
+    </style>
+</head>
+<body>
+    <div class="head">
+
+        <nav class="navbar navbar-dark bg-dark">
+            <h1 class="text-light">Pizarra</h1>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+                </li>
+               
+            </ul>
+        </nav>
+
+
+    </div>
+   
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-tittle">Welcome to Pizarra</h1>
+
+        </div>
+
+
+    </div>
+
+    <footer class="fixed-bottom">
+        <div class="row justify-content-center">
+            <p class="text-center text-light mt-3">Copyrights (C) 2024 - <u>www.Pizarra.com</u></p>     
+        </div>
+    </footer>
+   
+    
+</body>
+</html>

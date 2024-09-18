@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static  'bootstrap\css\bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <script src="{% static 'bootstrap\js\bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'bootstrap\jquery-3.7.1.min.js' %}"></script>
+
+    <title>Logout</title>
+    <style>
+        .card{
+            background-color: rgba(33,37,41,255);
+            margin-top:20px;
+        }
+        .card a{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        {% if messages %}
+                           <div class="alert alert-success" id="error-msg">
+                               {% for message in messages %}
+                                    {{message}}
+                                {% endfor %}
+                                </div>
+                        {% endif %}
+                        <a class="btn btn-" href="{% url 'login' %}">Go Back to Login
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+
+<script>
+    
+    setTimeout(function() {
+    $('#error-msg').fadeOut();  // You can also use .hide() for instant hiding
+     }, 3000);
+
+</script>
+</html>

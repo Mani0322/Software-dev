@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static  'bootstrap\css\bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <script src="{% static 'bootstrap\jquery-3.7.1.min.js' %}"></script>
+
+    <title>Signup</title>
+    <style>
+        li{
+            padding: 20px;
+        }
+        .head h1{
+            margin-left: 20px;
+        }
+        .head li a{
+            color:white !important;
+        }
+        
+       .center-text{
+            text-align: center;
+        
+       }
+     
+
+       .container{
+        background-color:rgba(33,37,41,255);
+        margin-top:4%;
+        max-width:450px;
+        padding:20px;
+        border-radius: 10px;
+
+       }
+
+       #btn-signup{
+        margin-left: 170px;
+       }
+
+       footer{
+        background-color:rgba(33,37,41,255);
+       }
+
+    </style>
+</head>
+<body>
+
+    <div class="head">
+
+        <nav class="navbar navbar-dark bg-dark">
+            <h1 class="text-light">Pizarra</h1>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+                </li>
+                
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="container">
+        <h4 class=" text-light center-text">Signup</h4>
+        {% if messages %}
+        <div class="alert alert-danger" id="error-msg">
+           {% for message in messages %}
+               {{ message }}
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div>
+            <form action="{% url 'signup' %}" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="Firstname" placeholder="Firstname" >
+                </div>
+                <div   class="mb-3">
+                    <input type="text" class="form-control" name="Lastname" placeholder="Lastname" >
+                </div>
+                <div   class="mb-3">
+                    <input type="email" class="form-control" name="Email" placeholder="Email" >
+                </div>
+                <div   class="mb-3">
+                    <input type="password" class="form-control" name="Password" placeholder="password" >
+                </div>
+                <div   class="mb-3">
+                    <input type="password" class="form-control" name="Confirm_password" placeholder="confirm password" >
+                </div>
+                <div  id="btn-signup" class="mb-3">
+                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                </div>
+                
+            </form>
+        </div>
+
+    </div>
+
+
+    <footer class="fixed-bottom">
+        <div class="row justify-content-center">
+            <p class="text-center text-light mt-3">Copyrights (C) 2024 - <u>www.Pizarra.com</u></p>     
+        </div>
+    </footer>
+    
+    
+</body>
+
+<script>
+    
+    setTimeout(function() {
+    $('#error-msg').fadeOut();  // You can also use .hide() for instant hiding
+     }, 3000);
+
+</script>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static  'bootstrap\css\bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <script src="{% static 'bootstrap\js\bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'bootstrap\jquery-3.7.1.min.js' %}"></script>
+
+
+
+    <title>Login</title>
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {
+            font-family: Roboto, sans-serif;
+        }
+        li{
+            padding: 20px;
+        }
+        .head h1{
+            margin-left: 20px;
+        }
+        .head li a{
+            color:white !important;
+        }
+       
+       .center-text{
+            text-align: center;
+        
+       }
+       
+      
+       .container{
+        background-color:rgba(33,37,41,255);
+        margin-top:8%;
+        padding: 20px;
+        max-width: 450px;
+        border-radius: 10px;
+       }
+
+       #btn-login{
+        margin-left: 170px;
+       }
+
+       footer{
+        background-color:rgba(33,37,41,255);
+       }
+
+    </style>
+
+       
+       
+
+</head>
+<body>
+
+    <div class="head">
+
+        <nav class="navbar navbar-dark bg-dark">
+            <h1 class="text-light">Pizarra</h1>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="container">
+        <h4 class="text-light center-text">Login</h4>
+        {% if messages %}
+           <div class="alert alert-danger" id="error-msg">
+              {% for message in messages %}
+                  {{ message }}
+               {% endfor %}
+           </div>
+        {% endif %}
+        
+        <div>
+            <form action="{% url 'login' %}" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="username" placeholder="username" >
+                </div>
+                <div   class="mb-3">
+                    <input type="password" class="form-control" name="password" placeholder="password" >
+                </div>
+                <div  id="btn-login" class="mb-3">
+                    <button type="submit" class="btn btn-primary mb-3">Login</button>
+                  </div>
+            </form>
+            <div >
+                <p class="text-light center-text">if you don't have an account?<a href="{% url 'signup' %}"><b>Signup</b></a></p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="fixed-bottom">
+        <div class="row justify-content-center">
+            <p class="text-center text-light mt-3">Copyrights (C) 2024 - <u>www.Pizarra.com</u></p>           
+        </div>
+    </footer>
+
+    
+</body>
+<script>
+    
+    setTimeout(function() {
+    $('#error-msg').fadeOut();  // You can also use .hide() for instant hiding
+     }, 3000);
+
+</script>
+
+</html>

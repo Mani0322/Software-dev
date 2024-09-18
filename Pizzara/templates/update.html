@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static  'bootstrap\css\bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <title>Update</title>
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {
+            font-family: Roboto, sans-serif;
+        }
+        li{
+            padding: 20px;
+        }
+        .head h1{
+            margin-left: 20px;
+        }
+
+        footer{
+           background-color:rgba(33,37,41,255);
+        }
+
+        .container{
+            max-width: 500px;
+            text-align: center;
+            margin-top: 5%;
+        }
+
+        .head-text{
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="head">
+
+        <nav class="navbar navbar-dark bg-dark">
+            <h1 class="text-light">Pizarra</h1>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary text-light" href="{% url 'logout' %}">Logout</a>
+                </li>
+                
+            </ul>
+        </nav>
+
+
+        <div class="head-text">
+            <h4 class="text-dark text-start">Update Project</h4>
+        </div>
+        <hr>
+        <div class="container">
+            <form method="POST" action="{% url 'updatedata' data.id %}" autocomplete="off">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="project name" placeholder="Project Name" value="{{data.Project_name}}" required>
+                </div>
+                <div   class="mb-3">
+                    <input type="text" class="form-control" name="project head" placeholder="Project Head" value="{{data.Project_head}}" required>
+                </div>
+                <div   class="mb-3">
+                    <input type="date" class="form-control" name="project startdate" placeholder="Project Startdate" value="{{data.Project_startdate}}" required>
+                </div>
+                <div   class="mb-3">
+                    <input type="date" class="form-control" name="project enddate" placeholder="Project enddate" value="{{data.Project_enddate}}" required>
+                </div>
+                <div   class="mb-3">
+                    <input type="text" class="form-control" name="project members" placeholder="Project Members" value="{{data.project_members}}"required>
+                </div>
+                <div   class="mb-3">
+                    <input type="text" class="form-control" name="status" placeholder="Status" value="{{data.status}}" required>
+                </div>
+                <div  id="btn-login" class="mb-3">
+                    <button type="submit" class="btn btn-primary mb-3">Update</button>
+                  </div>
+    
+    
+            </form>
+    
+        </div>
+
+   
+
+
+
+
+    <footer class="fixed-bottom">
+        <div class="row justify-content-center">
+            <p class="text-center text-light mt-3">Copyrights (C) 2024 - <u>www.Pizarra.com</u></p>     
+        </div>
+    </footer>
+    
+</body>
+</html>

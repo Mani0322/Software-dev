@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static  'bootstrap\css\bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <title>About</title>
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {
+            font-family: Roboto, sans-serif;
+        }
+        li{
+            padding: 20px;
+        }
+        .head h1{
+            margin-left: 20px;
+        }
+        .head li a{
+            color:white !important;
+        }
+        .bottom{
+            margin-top: 28%;
+        }
+
+       .center-text{
+            text-align: center;
+        
+       }
+       
+       
+       h3{
+        margin-top: 20px;
+        margin-left:20px;
+       }
+
+       footer{
+        background-color:rgba(33,37,41,255);
+    
+       }
+
+       .about p:first-letter{
+        padding-left: 10%;
+       }
+
+       
+        
+    </style>
+</head>
+<body>
+    <div class="head">
+
+        <nav class="navbar navbar-dark bg-dark">
+            <h1 class="text-light">Pizarra</h1>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+               
+            </ul>
+        </nav>
+    </div>
+
+    <div class="about">
+        <h3>About</h3>
+        <hr>
+
+        <p >
+            Pizarra is a software development tool used for project management and issue tracking. It is a popular tool among software development teams to plan, track, and release software projects. Pizarra provides a centralized platform for managing tasks, bugs, and other types of issues and it helps teams to organize and prioritize their work. The tool integrates with other software development tools and has a variety of customizable features and workflows that allow teams to adapt it to their specific needs. Additionally, Pizarra also provides various reporting and dashboard features that help teams stay on top of their work and make data-driven decisions.
+            Pizarra supports multiple languages including English, French, etc. It is a platform-independent tool. A 30-day free trial version is available on Pizarra. 
+        </p>
+    </div>
+
+    <footer class="fixed-bottom">
+        <div class="row justify-content-center">
+            <p class="text-center text-light mt-3">Copyrights (C) 2024 - <u>www.Pizarra.com</u></p>     
+        </div>
+    </footer>
+    
+</body>
+</html>
